@@ -1,1 +1,59 @@
+# macOS 시스템 파일
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# 파이썬 캐시/빌드
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# 가상환경
+.env
+*.env
+env/
+venv/
+ENV/
+.venv/
+
+# 주피터 노트북
+.ipynb_checkpoints/
+
+# 데이터/로그 파일
+*.csv
+*.tsv
+*.json
+*.log
+*.sqlite
+*.db
+*.sql
+*.h5
+
+# 오디오/비디오/이미지 등 대용량 파일
+*.wav
+*.mp3
+*.mp4
+*.m4a
+*.avi
+*.mov
+*.png
+*.jpg
+*.jpeg
+
+# 머신러닝/딥러닝 모델
+*.ckpt
+*.pt
+*.pth
+*.h5
+*.pkl
+*.joblib
+
+# 캐시/임시 파일
+.cache/
