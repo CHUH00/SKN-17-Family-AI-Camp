@@ -21,3 +21,23 @@ def basics(request):
         "price": 12345.6789
     }
     return render(request, 'app/01_basics.html', context)
+
+def layout(request):
+    return render(request, 'app/02_layout.html')
+
+def staticfiles(request):
+    return render(request, 'app/03_staticfiles.html')
+
+def urls(request):
+    return render(request, 'app/04_urls.html')
+
+def product(request, id):
+    print('@@@@@ product id [path variable] @@@@@', id)
+    return render(request, 'app/04_urls.html')
+
+def search(request):
+    print(request.GET)
+    # q = request.GET.get('q')
+    # lang = request.GET.get('lang')
+    # return render(request, 'app/04_urls.html', {'q': q, 'lang': lang})
+    return render(request, 'app/04_urls.html')
