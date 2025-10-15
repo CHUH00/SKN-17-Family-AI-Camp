@@ -1,0 +1,62 @@
+# JOIN
+
+# ALIAS (별칭)
+-- 컬럼 별칭
+SELECT menu_code as 'code'
+	   , menu_name as name
+       , menu_price as '메뉴의 가격'
+  FROM tbl_menu;
+  
+-- 테이블 별칭
+SELECT m.menu_code
+	   , m.menu_name
+       , m.menu_price
+  FROM tbl_menu as m;    -- as 생략 가능
+  
+
+
+# INNER JOIN
+-- ON
+SELECT m.menu_code
+	   , m.menu_name
+       , c.category_name
+  FROM tbl_menu m
+INNER JOIN tbl_category c ON m.category_code = c.category_code;
+
+-- USING (JOIN 대상인 두 테이블의 JOIN을 위한 연관 컬럼명이 같은 경우 사용)
+SELECT m.menu_code
+	   , m.menu_name
+       , c.category_name
+  FROM tbl_menu m
+  JOIN tbl_category c USING (category_code);
+
+
+
+# OUTER JOIN
+-- LEFT JOIN
+SELECT m.menu_code
+	   , m.menu_name
+       , c.category_name
+  FROM tbl_category c
+LEFT JOIN tbl_menu m ON m.category_code = c.category_code;
+
+-- RIGHT JOIN
+SELECT m.menu_code
+	   , m.menu_name
+       , c.category_name
+  FROM tbl_menu m
+RIGHT JOIN tbl_category c ON m.category_code = c.category_code;
+
+
+
+# CROSS JOIN
+SELECT a.menu_name, b.category_name
+  FROM tbl_menu a
+CROSS JOIN tbl_category b;
+
+
+
+# SELF JOIN
+SELECT a.category_name, b.category_name as '상위 카테고리명'
+  FROM tbl_category a
+  JOIN tbl_category b ON a.ref_category_code = b.category_code;

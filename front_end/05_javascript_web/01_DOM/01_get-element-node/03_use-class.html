@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_use class</title>
+</head>
+<body>
+    <h1>03. class를 이용한 요소 노드 취득</h1>
+    <ul id="available">
+        <li class="drink coffee">커피</li>
+        <li class="drink milk">우유</li>
+        <li class="drink coke">콜라</li>
+    </ul>
+    <ul id="unavailable">
+        <li class="drink soju">소주</li>
+        <li class="drink beer">맥주</li>
+        <li class="drink liquor">양주</li>
+    </ul>
+
+    <script>
+        // const $drinks = document.getElementsByClassName('drink');
+        const $drinks = document.getElementsByClassName('drink coke');
+        console.log($drinks);
+
+        Array.from($drinks).forEach(drink => drink.style.color = 'skyblue');
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. 이벤트 핸들러 어트리뷰트</h1>
+
+    <h3>이벤트 핸들러 등록</h3>
+    <pre>
+    이벤트 핸들러: 이벤트가 발생했을 때 브라우저에 호출을 위임한 함수
+    - 이벤트가 발생했을 때 브라우저에게 이벤트 핸들러의 호출을 위임하는 것을
+        이벤트 핸들러 등록이라고 하며, 등록 방법은 3가지가 있다.
+    </pre>
+
+    <h3>(1) 이벤트 핸들러 어트리뷰트 방식</h3>
+    <pre>
+    - 어트리뷰트 값으로 함수 호출문을 할당하여 이벤트 핸들러 등록 (on + 이벤트 타입)
+    </pre>
+
+    <button onclick="alert('Click!!!!!'); console.log('clicked');">Click me!</button>
+    <button onmouseover="hello('다람쥐');">마우스를 올려보세요!</button>
+
+    <script>
+        function hello(name) {
+            alert(`${name}님 환영합니다?`);
+        }
+    </script>
+</body>
+</html>

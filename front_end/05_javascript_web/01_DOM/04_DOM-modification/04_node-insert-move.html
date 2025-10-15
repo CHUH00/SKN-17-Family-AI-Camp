@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>04. 노드 삽입 및 이동</h1>
+
+    <h3>노드 삽입</h3>
+
+    <ul id="drink">
+        <li>카페라떼</li>
+    </ul>
+    <script>
+        const $drink = document.getElementById('drink');
+
+        const $li1 = document.createElement('li');
+        $li1.textContent = '우유';
+        $drink.appendChild($li1);
+
+        const $li2 = document.createElement('li');
+        $li2.textContent = '콜라';
+        // $drink.insertBefore($li2, $drink.lastElementChild);
+        // $drink.insertBefore($li2, document.querySelector('h3'));
+        $drink.insertBefore($li2, null);
+    </script>
+
+    <h3>노드 이동</h3>
+    
+    <ul id="food">
+        <li>불고기 백반</li>
+        <li>햄버거 세트</li>
+    </ul>
+    <script>
+        const $food = document.getElementById('food');
+
+        const [$bulgogi, $hamburger] = $food.children;
+
+        $drink.appendChild($bulgogi);
+        $drink.insertBefore($hamburger, $bulgogi);
+    </script>
+</body>
+</html>

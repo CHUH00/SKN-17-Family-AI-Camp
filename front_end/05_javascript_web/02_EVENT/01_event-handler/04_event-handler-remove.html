@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>04. 이벤트 핸들러 제거</h1>
+
+    <button id="btn">Click me!</button>
+    <script>
+        const $button = document.getElementById('btn');
+
+        const handleClick = () => alert('클 릭 함 !!!');
+
+        $button.addEventListener('click', handleClick);
+        $button.removeEventListener('click', handleClick);
+    </script>
+
+    <script>
+        // 등록된 이벤트 핸들러를 참조할 수 없으므로 제거 불가
+        $button.addEventListener('mouseover', () => alert('마우스 올 림!'));
+        $button.removeEventListener('mouseover', () => alert('마우스 올 림!'));
+    </script>
+
+    <script>
+        const handleDoubleClick = () => alert('더 블 클 릭 !!!');
+
+        // 프로퍼티로 등록된 이벤트 핸들러는 removeEventListner로 제거 불가
+        // => null 할당으로 제거 가능
+        $button.ondblclick = handleDoubleClick;
+        $button.removeEventListener('dbclick', handleDoubleClick);
+
+        $button.ondblclick = null;
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_HTMLCollection and NodeList</title>
+    <style>
+        .white { color: white; }
+        .black { color: black; }
+        .blue { color: blue; }
+        .red { color: red; }
+    </style>
+</head>
+<body>
+    <h1>05. HTMLCollection과 NodeList</h1>
+
+    <h3>HTMLCollection</h3>
+    <pre>
+    - getElementsByTagName, getElementsByClassName 메서드가 반환하는 객체
+    - 노드 객체의 상태 변화를 실시간으로 반영하는 live DOM 컬렉션 객체
+    </pre>
+
+    <ul>
+        <li class="white">착한 사람 눈에만 보이는 첫 번째 글</li>
+        <li class="white">착한 사람 눈에만 보이는 두 번째 글</li>
+        <li class="white">착한 사람 눈에만 보이는 세 번째 글</li>
+    </ul>
+
+    <script>
+        const $whiteList = document.getElementsByClassName('white');
+        console.log($whiteList);
+
+        // 문제. HTMLCollection이 live한 객체라서 정상 적용되지 않음
+        // for(let i=0; i < $whiteList.length; i++) {
+        //     $whiteList[i].className = 'black';
+        // }
+
+        // 해결 1. 반복문 역방향 순회
+        // for(let i=$whiteList.length - 1; i >= 0; i--) {
+        //     $whiteList[i].className = 'black';
+        // }
+
+        // 해결 2. while문 사용
+        // while (조건식) {
+        //     수행할 내용
+        // }
+        // while($whiteList.length > 0) {
+        //     $whiteList[0].className = 'black';
+        // }
+
+        // 해결 3. [권장] 배열로 변환하여 사용
+        Array.from($whiteList).forEach(list => list.className = 'black');
+    </script>
+
+    <h3>NodeList</h3>
+    <pre>
+    - querySelectorAll 메서드가 반환하는 객체
+    - 실시간으로 노드 객체 상태를 변경하지 않으므로(non-live) HTMLCollection 부작용 해결
+    </pre>
+
+    <ul id="lists">
+        <li class="red">빨간 휴지 줄까~ 파란 휴지 줄까~</li>
+        <li class="red">빨간 휴지 줄까~ 파란 휴지 줄까~</li>
+        <li class="red">빨간 휴지 줄까~ 파란 휴지 줄까~</li>
+    </ul>
+
+    <script>
+        const $redList = document.querySelectorAll('.red');
+
+        for(let i=0; i < $redList.length; i++) {
+            $redList[i].className = 'blue';
+        }
+
+        // [주의] childNodes를 통해 반환되는 NodeList는 live하게 동작함
+        const $lists = document.getElementById('lists');
+        const childNodes = $lists.childNodes;
+        console.log(childNodes);
+
+        for(let i=0; i < childNodes.length; i++) {
+            $lists.removeChild(childNodes[i]);
+        }
+        console.log(childNodes);
+    </script>
+</body>
+</html>

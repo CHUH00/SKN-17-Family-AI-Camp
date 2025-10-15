@@ -1,0 +1,17 @@
+.env
+
+*.wav
+*.mp3
+*.pdf
+*.csv
+*.jpg
+*.png
+*.jsonl
+*.json
+
+*chroma_db*
+!*chroma_db.ipynb
+*faiss*
+!*faiss_db.ipynb
+
+*/09_vision/*

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. 요소 노드의 텍스트 조작</h1>
+
+    <h3>nodeValue</h3>
+    
+    <div id="area">nodeValue</div>
+    <script>
+        console.log(document.nodeValue);
+
+        const $area = document.getElementById('area');
+        const $textNode = $area.firstChild;
+        console.log($textNode);
+        console.log($area.nodeValue);
+        console.log($textNode.nodeValue);
+
+        $textNode.nodeValue = '텍스트 값 변경!!!';
+    </script>
+
+    <h3>textContent</h3>
+
+    <div id="area2">textContent<span>내부 span</span></div>
+    <script>
+        const $area2 = document.getElementById('area2');
+
+        console.log($area2.textContent);
+
+        console.log($area2.nodeValue);
+        console.log($area2.firstChild.nodeValue);
+        console.log($area2.lastChild.firstChild.nodeValue);
+
+        $area2.textContent = '텍스트 값 변경! <span>span 태그도 써볼게요~</span>';
+    </script>
+</body>
+</html>

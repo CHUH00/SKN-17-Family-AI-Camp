@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. 이벤트 핸들러 내부의 this</h1>
+
+    <h3>이벤트 핸들러 어트리뷰트</h3>
+    <button onclick="handleClick1()">클릭111!</button>
+    <button onclick="handleClick2(this)">클릭222!</button>
+    <script>
+        function handleClick1() {
+            console.log(this);      // 일반 함수의 this == 전역 객체 window
+        }
+
+        function handleClick2(button) {
+            console.log(button);    // 이벤트 핸들러 호출 시 전달한 this == 이벤트를 바인딩한 DOM 요소
+        }
+    </script>
+
+    <h3>이벤트 핸들러 프로퍼티, addEventListener</h3>
+    <button id="btn1">Click!</button>
+    <button id="btn2">Click!</button>
+    <script>
+        const $btn1 = document.getElementById('btn1');
+        const $btn2 = document.getElementById('btn2');
+        $btn1.onclick = function(e) {
+            console.log(this);
+            console.log(this === e.currentTarget);
+        };
+        $btn2.addEventListener('click', function(e){
+            console.log(this);
+            console.log(this === e.currentTarget);
+        });
+    </script>
+
+    <h3>화살표 함수</h3>
+    <button id="btn3">Click!</button>
+    <button id="btn4">Click!</button>
+    <script>
+        const $btn3 = document.getElementById('btn3');
+        const $btn4 = document.getElementById('btn4');
+        $btn3.onclick = e => {
+            console.log(this);      // 화살표 함수의 this == 전역 객체 window
+            console.log(this === e.currentTarget);
+        };
+        $btn4.addEventListener('click', e => {
+            console.log(this);      // 화살표 함수의 this == 전역 객체 window
+            console.log(this === e.currentTarget);
+        });
+    </script>
+</body>
+</html>

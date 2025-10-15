@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promise</h1>
+
+    <pre>
+        1. 비동기 처리 함수 실행 시 성패에 대한 처리가 용이하도록 resolve/reject 제공
+          - resolve: 함수의 인자로 넘어온 값을 저장하고 있다가 then()을 만나면 저장한 값을 지닌 promise 객체 반환
+          - reject: 어떠한 이유로 거부되어야 할 (조건일) 때의 promise 객체 반환
+        2. promise 객체가 제공하는 메서드 사용 -> 콜백지옥 상황 해소
+    </pre>
+
+    <script>
+        function increase(number) {
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const result = number + 10;
+
+                    if(result > 50) {
+                        const e = new Error('NumberTooBig');
+                        return reject(e);
+                    }
+
+                    resolve(result);
+                }, 1000);
+            });
+
+            return promise;
+        }
+
+        console.log(increase(0));
+
+        increase(0)
+            .then(number => {
+                console.log(number);
+                return increase(number);
+            })
+            .then(number => {
+                console.log(number);
+                return increase(number);
+            })
+            .then(number => {
+                console.log(number);
+                return increase(number);
+            })
+            .then(number => {
+                console.log(number);
+                return increase(number);
+            })
+            .then(number => {
+                console.log(number);
+                return increase(number);
+            })
+            .then(number => {
+                console.log(number);
+                return increase(number);
+            })
+            .catch(e => {
+                console.log(e, "발생!!!!!!!!!!!!!!!");
+            })
+            .finally(() => {
+                console.log("finally 실행!!!!!!!!!!");
+            });
+    </script>
+</body>
+</html>

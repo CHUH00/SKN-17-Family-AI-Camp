@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. 자식 노드 탐색</h1>
+    
+    <ol id="node">
+        <!-- Node.prototype -->
+        <li>childNodes: 자식노드(요소 노드, 텍스트 노드)를 탐색하여 NodeList로 반환</li>
+        <li>firstChild: 첫 번째 자식 노드(요소 노드, 텍스트 노드)를 반환</li>
+        <li>lastChild: 마지막 자식 노드(요소 노드, 텍스트 노드)를 반환</li>
+    </ol>
+
+    <script>
+        const $node = document.getElementById('node');
+        console.log($node.childNodes);
+        console.log($node.firstChild);
+        console.log($node.lastChild);
+    </script>
+
+    <ol id="element">
+        <!-- Element.prototype -->
+        <li>children: 자식 노드 중 요소 노드만 탐색해 HTMLCollection 객체로 반환</li>
+        <li>firstElementChild: 첫 번째 자식 요소 노드 반환</li>
+        <li>lastElementChild: 마지막 자식 요소 노드 반환</li>
+    </ol>
+
+    <script>
+        const $element = document.getElementById('element');
+        console.log($element.children);
+        console.log($element.firstElementChild);
+        console.log($element.lastElementChild);
+    </script>
+
+    <ol id="empty">
+    </ol>
+
+    <script>
+        const $empty = document.getElementById('empty');
+
+        // 자식 노드 존재 여부 확인 (요소 노드, 텍스트 노드)
+        console.log($node.hasChildNodes());
+        console.log($element.hasChildNodes());
+        console.log($empty.hasChildNodes());
+
+        // 요소 노드만 존재하는지 확인하고 싶다면?
+        console.log(!!$empty.children.length);
+        console.log(!!$empty.childElementCount);
+    </script>
+
+</body>
+</html>

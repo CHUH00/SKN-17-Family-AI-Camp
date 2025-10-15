@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. insertAdjacentHTML</h1>
+
+    <div id="area">
+        insertAdjacentHTML method 사용 테스트
+    </div>
+    <script>
+        const $area = document.getElementById('area');
+
+        $area.insertAdjacentHTML('beforebegin', '<h1>BB</h1>');
+        $area.insertAdjacentHTML('afterbegin', '<h1>AB</h1>');
+        $area.insertAdjacentHTML('beforeend', '<h1>BE</h1>');
+        $area.insertAdjacentHTML('afterend', '<h1>AE</h1>');
+    </script>
+</body>
+</html>

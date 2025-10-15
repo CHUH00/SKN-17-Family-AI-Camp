@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. 비동기</h1>
+
+    <h3>동기 처리 (synchronous)</h3>
+    <script>
+        function sleep(func, delay) {
+            const delayUntil = Date.now() + delay;
+            while(Date.now() < delayUntil);
+            func();
+        }
+
+        function delay() {
+            console.log('나는 실행을 늦추고 싶은 함수야...');
+        }
+
+        function start() {
+            console.log('나는 바로 실행하고 싶은 함수인데?!');
+        }
+
+        // sleep(delay, 3000);
+        // start();
+    </script>
+
+
+    <h3>비동기 처리 (asynchronous)</h3>
+    <h3>setTimeout</h3>
+    <pre>
+        setTimeout(func|code[, delay, param1, param2, ...]);
+    </pre>
+    <script>
+        setTimeout(delay, 3000);
+        // setTimeout(delay);       // delay의 기본값: 0(ms)
+        // setTimeout((msg) => console.log(`${msg}`), 3000, '3초 기다림!!!');
+        start();
+    </script>
+
+    <h3>clearTimeout</h3>
+    <pre>
+        clearTimeout(timerId);
+    </pre>
+    <script>
+        const timerId = setTimeout(() => console.log('나는 취소되고 말거야!'), 3000);
+        console.log('timerId:', timerId);
+        clearTimeout(timerId);
+    </script>
+
+    <h3>태스크 큐 (task queue)</h3>
+    <pre>
+        - 비동기 함수의 콜백 함수 또는 이벤트 핸들러가 일시적으로 보관되는 영역
+    </pre>
+
+    <h3>이벤트 루프 (event loop)</h3>
+    <pre>
+        - 콜 스택에 현재 실행 중인 실행 컨텍스트가 있는지, 태스크 큐에 대기 중인 함수가 있는지 반복 확인
+        - 콜 스택이 비어있고 태스크 큐에 대기 중인 함수가 있다면 순차적(FIFO)으로 콜 스택으로 이동
+        - 콜 스택으로 이동한 함수는 실행됨
+    </pre>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight {
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>02. 이벤트 위임</h1>
+
+    <ul id="drink">
+        <li>카페라떼</li>
+        <li>제로콜라</li>
+        <li>바나나우유</li>
+    </ul>
+    <script>
+        const $drink = document.getElementById('drink');
+
+        $drink.addEventListener('click', e => {
+            if(e.target.matches('li')) {
+                highlight(e.target);
+            }
+        });
+
+        function highlight(elem) {
+            elem.classList.toggle('highlight');
+        }
+    </script>
+</body>
+</html>

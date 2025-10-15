@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>01. 이벤트 객체</h1>
+
+    <h2 class="message">아무 곳이나 클릭해 보세요!</h2>
+    <script>
+        const $msg = document.querySelector('.message');
+
+        function showCoords(e) {
+            console.log(e);
+            $msg.textContent = `clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        }
+
+        document.onclick = showCoords;
+    </script>
+
+    <div class="area" onclick="showDivCoords(event)">
+        영역 내부를 클릭해 보세요!
+    </div>
+    <script>
+        const $area = document.querySelector('.area');
+
+        function showDivCoords(e) {
+            console.log(e);
+            $area.textContent = `clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        }
+    </script>
+</body>
+</html>

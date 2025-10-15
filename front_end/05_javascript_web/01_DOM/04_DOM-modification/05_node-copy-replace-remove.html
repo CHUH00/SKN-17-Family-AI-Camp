@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>05. 노드 복사/교체/삭제</h1>
+
+    <h3>노드 복사</h3>
+
+    <ul class="copy">
+        ul area
+        <li>li area</li>
+    </ul>
+    <script>
+        const $ul = document.querySelector('.copy');
+        const $li = $ul.firstElementChild;
+
+        const $clone1 = $li.cloneNode(false);   // 얕은 복사
+        const $clone2 = $li.cloneNode(true);    // 깊은 복사
+
+        $ul.appendChild($clone1);
+        $ul.appendChild($clone2);
+    </script>
+
+    <h3>노드 교체</h3>
+
+    <ul id="drink">
+        <li>카페라떼</li>
+        <li>아메리카노</li>
+    </ul>
+    <script>
+        const $drink = document.getElementById('drink');
+        const $latte = $drink.firstElementChild;
+
+        const $newLatte = document.createElement('li');
+        $newLatte.textContent = '바닐라빈 라떼';
+
+        $drink.replaceChild($newLatte, $latte);
+    </script>
+
+    <h3>노드 삭제</h3>
+    
+    <ul id="food">
+        <li>불고기 백반</li>
+        <li>햄버거 세트</li>
+    </ul>
+    <script>
+        const $food = document.getElementById('food');
+        $food.removeChild($food.lastElementChild);
+    </script>
+</body>
+</html>

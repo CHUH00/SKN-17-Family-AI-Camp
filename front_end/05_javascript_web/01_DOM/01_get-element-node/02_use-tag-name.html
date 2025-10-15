@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_use tag name</title>
+</head>
+<body>
+    <h1>02. 태그 이름을 이용한 요소 노드 취득</h1>
+    <ul id="food">
+        <li>돼지고기김치찌개</li>
+        <li>두부된장찌개</li>
+        <li>고등어구이정식</li>
+    </ul>
+    <ul id="drink">
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>토마토주스</li>
+    </ul>
+
+    <script>
+        const $lists = document.getElementsByTagName('li'); // HTMLCollection 객체 반환
+        console.log($lists);
+
+        let changeColor = 0;
+        for(let i = 0; i < $lists.length; i++) {
+            $lists[i].style.backgroundColor = "rgb(130,220," + changeColor + ")";
+            changeColor += 50;
+        }
+        Array.from($lists).forEach(list => list.style.color = 'white');
+
+        const $drink = document.getElementById('drink');
+        const $listsFromDrink = $drink.getElementsByTagName('li');
+        [...$listsFromDrink].forEach(list => list.style.color = 'red');
+
+        // 존재하지 않는 태그명으로 탐색하면 빈 HTMLCollection 객체 반환
+        const $noElem = document.getElementsByTagName('div');
+        console.log($noElem);
+    </script>
+</body>
+</html>

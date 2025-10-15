@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. innerHTML</h1>
+
+    <div id="area">태그 엘리먼트의 값을 읽거나, 변경할 때 <span>innerHTML</span>속성을 사용한다.</div>
+    <script>
+        const $area = document.getElementById('area');
+        console.log($area.innerHTML);
+
+        $area.innerHTML += '값을 붙여볼게요 짠!';
+        $area.innerHTML = '';
+        $area.innerHTML = '<h1>innerHTML</h1> 속성으로 값 변경?!';
+    </script>
+    
+    <ul id="list">
+        <li class="coffee">카페라떼</li>
+    </ul>
+    <script>
+        const $list = document.getElementById('list');
+        $list.innerHTML += '<li class="coke">콜라</li>';
+    </script>
+
+    <script>
+        $area.innerHTML = `<img src='x' onerror='alert("메롱! 악성 코드지롱!")'/>`;
+    </script>
+</body>
+</html>

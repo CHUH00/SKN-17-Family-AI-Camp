@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>async - await</h1>
+
+    <pre>
+        [ await의 기능 ]
+        1. await가 달린 함수의 결과인 promise에 담긴 결과(promise 내부의 resolve에 담긴 결과)를 반환
+            => then을 사용하지 않고 (메서드 체이닝 방식 없이) 비동기 처리 함수를 동기식 처리 가능
+        2. await가 달린 비동기 처리들은 동기식으로 동작하게 함
+    </pre>
+
+    <script>
+        function increase(number) {
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const result = number + 10;
+
+                    if(result > 50) {
+                        const e = new Error('NumberTooBig');
+                        return reject(e);
+                    }
+
+                    resolve(result);
+                }, 1000);
+            });
+
+            return promise;
+        }
+
+        async function run() {
+            try {
+                let result = await increase(0);
+                console.log(result);
+
+                result = await increase(result);
+                console.log(result);
+
+                result = await increase(result);
+                console.log(result);
+
+                result = await increase(result);
+                console.log(result);
+
+                result = await increase(result);
+                console.log(result);
+
+                result = await increase(result);
+                console.log(result);
+            } catch(e) {
+                console.log(e + ' 에러 발생!!!!!!!!!!');
+            }
+        }
+
+        run();
+    </script>
+</body>
+</html>

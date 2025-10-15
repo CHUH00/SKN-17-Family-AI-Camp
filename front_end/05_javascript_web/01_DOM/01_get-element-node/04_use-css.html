@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_use css</title>
+</head>
+<body>
+    <h1>04. CSS 선택자를 이용한 요소 노드 취득</h1>
+
+    <div class="area">
+        <p>first</p>
+    </div>
+    <div class="area">
+        <p>second</p>
+    </div>
+
+    <script>
+        // 해당 CSS 선택자에 해당되는 요소 중 처음 하나만 반환
+        const $area = document.querySelector('.area');
+        console.log($area);
+
+        $area.style.backgroundColor = 'yellow';
+
+        const $first = $area.querySelector('p');
+        console.log($first);
+
+        // 존재하지 않는 요소 탐색 시 null 반환
+        const $noElem = document.querySelector('#noElem');
+        console.log($noElem);
+    </script>
+
+    <ul id="list">
+        <li class="drink">아메리카노</li>
+        <li class="drink">카페라떼</li>
+        <li class="food">김밥</li>
+        <li class="food">라면</li>
+    </ul>
+
+    <script>
+        // 해당 CSS 선택자에 해당하는 모든 요소를 NodeList로 반환
+        const $lists = document.querySelectorAll('ul > li');
+        console.log($lists);
+
+        $lists.forEach(list => list.style.backgroundColor = 'coral');
+
+        const $drinks = document.getElementById('list').querySelectorAll('.drink');
+        $drinks.forEach(drink => drink.style.color = 'white');
+
+        // 존재하지 않는 요소 탐색 시 빈 NodeList 반환
+        const $noElemList = document.querySelectorAll('#noElemList');
+        console.log($noElemList);
+    </script>
+
+</body>
+</html>
