@@ -16,9 +16,9 @@
 | **machine_learning** | 머신러닝의 이론 학습 및 모델 구현 실습 코드 | 회귀, 분류, 군집화, 앙상블, 모델 평가 |
 | **deep_learning** | 딥러닝 기초 개념 학습 및 간단한 신경망 구현 | Perceptron, 활성화 함수, 손실 함수, 역전파, CNN/RNN 기초 |
 | **natural_language_processing** | 자연어 처리(NLP) 기법 및 실습 자료 | 토큰화, 임베딩, RNN/LSTM/GRU, 텍스트 분류 |
-| **large_language_model** | 대규모 언어 모델(LLM) 및 관련 기술 활용 | OpenAI API, Prompt Engineering, RAG, 벡터 데이터베이스 |
+| **large_language_model** | 대규모 언어 모델(LLM) 및 관련 기술 활용 | OpenAI API, Prompt Engineering, RAG, 벡터 데이터베이스, Fine-tuning |
 | **database** | 데이터베이스 기초 학습 및 연동 실습 파일 | SQL (CRUD, JOIN), Python-MySQL 연동 |
-| **front_end** | AI 서비스 구현을 위한 프론트엔드 기초 실습 | Streamlit (Python 기반 웹 애플리케이션) |
+| **front_end** | AI 서비스 구현을 위한 프론트엔드 기초 실습 | HTML, CSS, javascript |
 | **back_end** | AI 서비스 구축 시 필요한 백엔드 기본 구성 요소 | (예상되는 내용 또는 추가될 내용 명시) |
 
 ## 프로젝트 주요 성과 및 목표
@@ -34,3 +34,4 @@
 * **문의:** 프로젝트 내용 관련 문의는 GitHub Issues 또는 [CHUH00 님의 GitHub 프로필](https://github.com/CHUH00)을 통해 연락 주시면 됩니다.
 
 ---
+
